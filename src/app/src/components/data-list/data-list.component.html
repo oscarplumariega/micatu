@@ -1,6 +1,6 @@
-<div class="data-list-container">
-  <app-main-container>
-    <mat-grid-list cols="4" rowHeight="1:1">
+<app-main-container>
+  <div class="data-list-container">
+    <mat-grid-list cols="1" rowHeight="2:1">
       @if(pagedList){
       <ul>
         @for (i of pagedList; track i.id) {
@@ -10,7 +10,10 @@
             <mat-card-subtitle>
               {{ i.createdAt }}
             </mat-card-subtitle>
-            <img mat-card-image src="{{ i.avatar }}" alt="{{ i.name }}" />
+            <mat-card-content>
+              <img mat-card-image src="{{ i.avatar }}" alt="{{ i.name }}" />
+              {{ i.description }}
+            </mat-card-content>
           </mat-card>
         </mat-grid-tile>
         }
@@ -25,5 +28,5 @@
       aria-label="Select page"
     >
     </mat-paginator>
-  </app-main-container>
-</div>
+  </div>
+</app-main-container>

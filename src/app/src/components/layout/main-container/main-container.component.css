@@ -1,12 +1,11 @@
 .main-container {
   display: flex;
-  border: 2px solid black;
   gap: 2rem;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   padding: 1rem;
-  max-height: 200vh;
-  overflow: auto;
+  max-height: 85vh;
+  overflow-y:scroll;
 }
