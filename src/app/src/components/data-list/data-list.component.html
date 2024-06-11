@@ -1,9 +1,9 @@
 <div class="data-list-container">
   <app-main-container>
     <mat-grid-list cols="4" rowHeight="1:1">
-      @if(salesData){
+      @if(pagedList){
       <ul>
-        @for (i of salesData; track i) {
+        @for (i of pagedList; track i.id) {
         <mat-grid-tile>
           <mat-card>
             <mat-card-title>{{ i.name }}</mat-card-title>
@@ -19,8 +19,9 @@
     </mat-grid-list>
     <mat-paginator
       [length]="records"
-      [pageSize]="16"
+      [pageSize]="recordsPerPage"
       [pageSizeOptions]="[16, 32, 48, 64]"
+      (page)="OnPageChange($event)"
       aria-label="Select page"
     >
     </mat-paginator>
