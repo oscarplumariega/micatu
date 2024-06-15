@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MicatuService } from '../../../core/services/micatu.service';
 import { AsyncPipe } from '@angular/common';
 import { DUIPaginator } from "david-ui-angular";
+import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
+import { CommunicationService } from '../../../core/services/communication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-data-list',
   standalone: true,
-  imports: [AsyncPipe, DUIPaginator],
+  imports: [AsyncPipe, DUIPaginator, SaleDetailComponent],
   templateUrl: './data-list.component.html',
   styleUrl: './data-list.component.css'
 })
@@ -17,8 +20,11 @@ export class DataListComponent{
   recordsPerPage = 10;
   totalPages!: any;
   numberOfPages: any = [];
+  
+  subscription!: Subscription;
+  saleToSend!: any;
 
-  constructor(private service: MicatuService) { }
+  constructor(private service: MicatuService, private c_service: CommunicationService) { }
 
   ngOnInit() {
     this.getSalesAds();
@@ -60,6 +66,10 @@ export class DataListComponent{
       }
     }
     document.body.scrollIntoView();
+  }
+
+  btnClick(sale: any){
+    this.c_service.setData(sale);
   }
 
 }
