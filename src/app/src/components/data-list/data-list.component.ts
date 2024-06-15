@@ -5,11 +5,13 @@ import { DUIPaginator } from "david-ui-angular";
 import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
 import { CommunicationService } from '../../../core/services/communication.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-data-list',
   standalone: true,
-  imports: [AsyncPipe, DUIPaginator, SaleDetailComponent],
+  imports: [AsyncPipe, DUIPaginator, SaleDetailComponent, ToolbarComponent],
   templateUrl: './data-list.component.html',
   styleUrl: './data-list.component.css'
 })
@@ -24,7 +26,7 @@ export class DataListComponent{
   subscription!: Subscription;
   saleToSend!: any;
 
-  constructor(private service: MicatuService, private c_service: CommunicationService) { }
+  constructor(private service: MicatuService, private c_service: CommunicationService, private router: Router) { }
 
   ngOnInit() {
     this.getSalesAds();
@@ -70,6 +72,7 @@ export class DataListComponent{
 
   btnClick(sale: any){
     this.c_service.setData(sale);
+    this.router.navigate(['/sale-detail'])
   }
 
 }
