@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommunicationService } from '../../../core/services/communication.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @Component({
   selector: 'app-sale-detail',
   standalone: true,
-  imports: [ToolbarComponent],
+  imports: [ToolbarComponent, NotFoundComponent],
   templateUrl: './sale-detail.component.html',
   styleUrl: './sale-detail.component.css'
 })
