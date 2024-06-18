@@ -9,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
 
+  hideProfileDropdown(){
+    if(document.getElementById("drpProfile")?.classList.contains('hidden')){
+      document.getElementById("drpProfile")?.classList.remove('hidden');
+      document.getElementById("drpProfile")?.classList.add('absolute');
+    }else{
+      document.getElementById("drpProfile")?.classList.remove('absolute');
+      document.getElementById("drpProfile")?.classList.add('hidden');
+    }
+  }
 }

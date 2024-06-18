@@ -29,7 +29,13 @@ export class DataListComponent{
   constructor(private service: MicatuService, private c_service: CommunicationService, private router: Router) { }
 
   ngOnInit() {
-    this.getSalesAds();
+    
+    let path = this.router.routerState.snapshot.url;
+    if(path.includes('sales')){
+      this.getAds('sales');
+    }else{
+      this.getAds('rents');
+    }
 
     window.onload = (event) => {
       let el = document.getElementById("1");
@@ -39,17 +45,30 @@ export class DataListComponent{
     };
   }
 
-  getSalesAds() {
-    this.service.getSalesAds().subscribe(response => {
-      this.salesData = response;
-      this.records = this.salesData.length;
-      this.pageRecords = this.salesData.slice(0, this.recordsPerPage);
-      this.totalPages = this.records / this.recordsPerPage;
-
-      for (let i = 1; i <= this.totalPages; i++) {
-        this.numberOfPages.push(i);
-      }
-    });
+  getAds(n:string) {
+    if(n.includes("sales")){
+      this.service.getSalesAds().subscribe(response => {
+        this.salesData = response;
+        this.records = this.salesData.length;
+        this.pageRecords = this.salesData.slice(0, this.recordsPerPage);
+        this.totalPages = this.records / this.recordsPerPage;
+  
+        for (let i = 1; i <= this.totalPages; i++) {
+          this.numberOfPages.push(i);
+        }
+      });
+    }else{
+      this.service.getRentsAds().subscribe(response => {
+        this.salesData = response;
+        this.records = this.salesData.length;
+        this.pageRecords = this.salesData.slice(0, this.recordsPerPage);
+        this.totalPages = this.records / this.recordsPerPage;
+  
+        for (let i = 1; i <= this.totalPages; i++) {
+          this.numberOfPages.push(i);
+        }
+      });
+    }
   }
 
   goToPage(nextPage: number) {
