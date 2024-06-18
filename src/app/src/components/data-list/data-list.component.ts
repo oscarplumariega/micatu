@@ -31,6 +31,7 @@ export class DataListComponent{
   ngOnInit() {
     
     let path = this.router.routerState.snapshot.url;
+    
     if(path.includes('sales')){
       this.getAds('sales');
     }else{
