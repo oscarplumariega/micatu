@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MicatuService {
   apiUrl = 'https://66685043f53957909ff77b8c.mockapi.io/micatu/api';
+  apiNest = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   getSalesAds() {
@@ -14,5 +15,8 @@ export class MicatuService {
   }
   getRentsAds() {
     return this.http.get(`${this.apiUrl}/rents_ads`);
+  }
+  getAds(){
+    return this.http.get(`${this.apiNest}/ads`);
   }
 }

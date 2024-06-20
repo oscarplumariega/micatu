@@ -48,7 +48,7 @@ export class DataListComponent{
 
   getAds(n:string) {
     if(n.includes("sales")){
-      this.service.getSalesAds().subscribe(response => {
+      this.service.getAds().subscribe(response => {
         this.salesData = response;
         this.records = this.salesData.length;
         this.pageRecords = this.salesData.slice(0, this.recordsPerPage);
