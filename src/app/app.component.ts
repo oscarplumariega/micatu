@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DataListComponent } from './src/components/data-list/data-list.component';
-import { ToolbarComponent } from './src/components/toolbar/toolbar.component';
-import { SaleDetailComponent } from './src/components/sale-detail/sale-detail.component';
+import { DataListComponent } from './components/data-list/data-list.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { SaleDetailComponent } from './components/sale-detail/sale-detail.component';
 
 @Component({
   selector: 'app-root',

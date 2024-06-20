@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommunicationService } from '../../../core/services/communication.service';
+import { CommunicationService } from '../../core/services/communication.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { NotFoundComponent } from '../not-found/not-found.component';

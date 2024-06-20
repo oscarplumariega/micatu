@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { SaleDetailComponent } from './src/components/sale-detail/sale-detail.component';
-import { DataListComponent } from './src/components/data-list/data-list.component';
-import { MainComponent } from './src/components/main/main.component';
+import { SaleDetailComponent } from './components/sale-detail/sale-detail.component';
+import { DataListComponent } from './components/data-list/data-list.component';
+import { MainComponent } from './components/main/main.component';
 
 export const routes: Routes = [
     {path: '', title: 'Home', component: MainComponent},

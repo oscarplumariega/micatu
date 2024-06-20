@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import { MicatuService } from '../../../core/services/micatu.service';
+import { MicatuService } from '../../core/services/micatu.service';
 import { AsyncPipe } from '@angular/common';
 import { DUIPaginator } from "david-ui-angular";
-import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
-import { CommunicationService } from '../../../core/services/communication.service';
+import { CommunicationService } from '../../core/services/communication.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
 
 @Component({
   selector: 'app-data-list',
