@@ -7,11 +7,12 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @Component({
   selector: 'app-data-list',
   standalone: true,
-  imports: [AsyncPipe, DUIPaginator, SaleDetailComponent, ToolbarComponent],
+  imports: [AsyncPipe, DUIPaginator, SaleDetailComponent, ToolbarComponent, NotFoundComponent],
   templateUrl: './data-list.component.html',
   styleUrl: './data-list.component.css'
 })

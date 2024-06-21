@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -19,4 +19,9 @@ export class MicatuService {
   getAds(){
     return this.http.get(`${this.apiNest}/ads`);
   }
+  postAd(ad: any){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post(`${this.apiNest}/ads`,JSON.stringify(ad), {headers: headers});
+  }
+
 }
